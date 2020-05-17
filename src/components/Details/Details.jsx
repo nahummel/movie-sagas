@@ -11,7 +11,6 @@ class Details extends Component {
     } 
 
     handleEdit = () => {
-        console.log('in handleEdit');
         this.props.history.push('/edit');
     }
 

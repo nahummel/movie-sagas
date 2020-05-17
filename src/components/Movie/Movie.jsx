@@ -6,7 +6,7 @@ class Movie extends Component {
     handleClick = () => {
         console.log('in handleClick:', this.props);
         this.props.dispatch({type: 'MOVIE_ID', payload: this.props.movie.id})
-        this.props.dispatch({type: 'storeMovie', payload0: this.props.movie.title, payload1: this.props.movie.description})
+        this.props.dispatch({ type: 'storeMovie', payload0: this.props.movie.title, payload1: this.props.movie.description, payload2: this.props.movie.id})
         this.props.history.push('/details');
     }
 

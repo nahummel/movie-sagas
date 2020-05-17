@@ -25,4 +25,15 @@ router.get('/:id', (req, res) => {
     });
 });
 
+router.put('/:id', (req,res) => {
+    const queryText = `UPDATE "movies" SET "title"=$1, "description"=$2 WHERE id=$3;`
+    const values = [req.body.title, req.body.description, req.params.id];
+    pool.query(queryText, values).then((results) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('error in server put')
+        res.sendStatus(500);
+    });
+});
+
 module.exports = router

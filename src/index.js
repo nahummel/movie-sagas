@@ -16,6 +16,7 @@ import createSagaMiddleware from 'redux-saga';
 function* rootSaga() {
     yield takeEvery('GETMOVIES', fetchMovies);
     yield takeEvery('MOVIE_ID', fetchGenres);
+    yield takeEvery('SAVE', updateDetails)
 }
 
 // Create sagaMiddleware
@@ -41,10 +42,10 @@ const genresReducer = (state = [], action) => {
     }
 }
 // Used to store the movie info that was clicked
-const detailsReducer = (state = [{title:'', description:''}], action) => {
+const detailsReducer = (state = [{id:0, title:'', description:''}], action) => {
     switch (action.type) {
         case 'storeMovie':
-            return {title: action.payload0, description: action.payload1};
+            return {id: action.payload2, title: action.payload0, description: action.payload1};
         default:
             return state;
     }
@@ -71,6 +72,18 @@ function* fetchGenres(action){
     } catch (error){
         console.log(error);
         alert('Error in getting Genres');
+    }
+}
+
+function* updateDetails(action){
+    try {
+        const id = action.payload0;
+        const response = yield axios.put(`/api/movies/${id}`, {title: action.payload1,description: action.payload2});
+        console.log(response.data)
+        yield put({type: 'storeMovie', payload0: action.payload1, payload2: action.payload0, payload1: action.payload1})
+
+    } catch (error) {
+        console.log('Error in index.js Put', error);
     }
 }
 
