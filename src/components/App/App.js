@@ -4,6 +4,7 @@ import{HashRouter, Route, Link} from 'react-router-dom';
 
 import './App.css';
 import MoviesList from '../MoviesList/MoviesList';
+import Details from '../Details/Details'
 
 class App extends Component {
   componentDidMount(){
@@ -13,10 +14,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
-          <h1>Movies</h1>
-        </header>
-        <MoviesList/>
+        <HashRouter>
+          <Route exact path="/" render={(props) => <MoviesList {...props}/>}/>
+          <Route path="/details" render={(props) => <Details {...props}/>}/>
+        </HashRouter>
       </div>
     );
   }

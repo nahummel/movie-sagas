@@ -10,17 +10,21 @@ class MovieList extends Component {
     }
 
     render() {
-        console.log(this.props.reduxState.moviesReducer)
         return (
-            <div>
-                <ul>
-                    {this.props.reduxState.moviesReducer.map((movie) => {
-                        return(
-                            <Movie movie={movie} key={movie.id}/>
-                        )
-                    })}
-                </ul>
-            </div>
+            <>
+                <header>
+                    <h1>Movies</h1>
+                </header>
+                <div>
+                    <ul>
+                        {this.props.reduxState.moviesReducer.map((movie) => {
+                            return(
+                                <Movie movie={movie} key={movie.id} history={this.props.history}/>
+                            )
+                        })}
+                    </ul>
+                </div>
+            </>
         )
     }
 }
