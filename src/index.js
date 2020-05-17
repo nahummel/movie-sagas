@@ -80,7 +80,7 @@ function* updateDetails(action){
         const id = action.payload0;
         const response = yield axios.put(`/api/movies/${id}`, {title: action.payload1,description: action.payload2});
         console.log(response.data)
-        yield put({type: 'storeMovie', payload0: action.payload1, payload2: action.payload0, payload1: action.payload1})
+        yield put({type: 'storeMovie', payload0: action.payload1, payload2: action.payload0, payload1: action.payload2})
 
     } catch (error) {
         console.log('Error in index.js Put', error);
