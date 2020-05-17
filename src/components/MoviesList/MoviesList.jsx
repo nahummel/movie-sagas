@@ -16,7 +16,7 @@ class MovieList extends Component {
                 <ul>
                     {this.props.reduxState.moviesReducer.map((movie) => {
                         return(
-                            <Movie movie={movie} />
+                            <Movie movie={movie} key={movie.id}/>
                         )
                     })}
                 </ul>
