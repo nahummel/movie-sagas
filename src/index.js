@@ -40,6 +40,15 @@ const genresReducer = (state = [], action) => {
             return state;
     }
 }
+// Used to store the movie info that was clicked
+const detailsReducer = (state = [{title:'', description:''}], action) => {
+    switch (action.type) {
+        case 'storeMovie':
+            return {title: action.payload0, description: action.payload1};
+        default:
+            return state;
+    }
+}
 
 // Generator functions
 function* fetchMovies(){
@@ -70,6 +79,7 @@ const storeInstance = createStore(
     combineReducers({
         moviesReducer,
         genresReducer,
+        detailsReducer
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
