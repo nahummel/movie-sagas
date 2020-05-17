@@ -26,7 +26,15 @@ class Edit extends Component {
     }
 
     handleSave = () => {
+        if (this.state.title === '' && this.state.description === '') {
+            this.props.dispatch({ type: "SAVE", payload0: this.props.reduxState.detailsReducer.id, payload1: this.props.reduxState.detailsReducer.title, payload2: this.props.reduxState.detailsReducer.description });
+        } else if (this.state.description === ''){
+            this.props.dispatch({ type: "SAVE", payload0: this.props.reduxState.detailsReducer.id, payload1: this.state.title, payload2: this.props.reduxState.detailsReducer.description});
+        } else if (this.state.title === '') {
+            this.props.dispatch({ type: "SAVE", payload0: this.props.reduxState.detailsReducer.id, payload1: this.props.reduxState.detailsReducer.title, payload2: this.state.description });
+        }else {
         this.props.dispatch({ type: "SAVE", payload0: this.props.reduxState.detailsReducer.id, payload1: this.state.title, payload2: this.state.description});
+        }
         this.props.history.push('/details');
     }
 
