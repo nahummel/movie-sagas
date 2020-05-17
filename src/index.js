@@ -14,7 +14,8 @@ import createSagaMiddleware from 'redux-saga';
 
 // Create the rootSaga generator function
 function* rootSaga() {
-    yield takeEvery('GETMOVIES', fetchMovies)
+    yield takeEvery('GETMOVIES', fetchMovies);
+    yield takeEvery('MOVIE_ID', fetchGenres);
 }
 
 // Create sagaMiddleware
@@ -41,7 +42,7 @@ const genresReducer = (state = [], action) => {
 }
 
 // Generator functions
-function* fetchMovies(action){
+function* fetchMovies(){
     try{
         const response = yield axios.get('/api/movies');
         console.log('in fetchMovies', response.data);
@@ -49,6 +50,18 @@ function* fetchMovies(action){
     } catch(error){
         console.log(error);
         alert('Error getting Movies')
+    }
+}
+
+function* fetchGenres(action){
+    try{
+        const id = action.payload;
+        const response = yield axios.get(`/api/movies/${id}`);
+        console.log('in fetchGenres:', response.data);
+        yield put ({type: 'SET_GENRES', payload: response.data});
+    } catch (error){
+        console.log(error);
+        alert('Error in getting Genres');
     }
 }
 
