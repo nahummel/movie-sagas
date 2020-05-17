@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 import Genre from '../Genre/Genre'
-import { connect } from 'react-redux'
+
 
 class Details extends Component {
 
-    handleClick = () => {
-        this.props.history.push('/')
+    handleBack = () => {
+        this.props.history.push('/');
     } 
+
+    handleEdit = () => {
+        console.log('in handleEdit');
+        this.props.history.push('/edit');
+    }
 
     render() {
         return (
             <div>
                 <h1>Details</h1>
-                <button onClick={this.handleClick}>Back</button>
-                <button>Edit</button>
+                <button onClick={this.handleBack}>Back</button>
+                <button onClick={this.handleEdit}>Edit</button>
                 <h2>{this.props.reduxState.detailsReducer.title}</h2>
                 <h2>Genre</h2>
                 <ul>
