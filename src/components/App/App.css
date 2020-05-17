@@ -52,9 +52,29 @@ h1 {
   background-color: rgb(206, 239, 247);
 }
 
-.button {
-  background-color: rgb(206, 239, 247);
-  margin: 20px;
+.inputs {
+  padding: 20px;
+}
+
+.titleInput {
+  display: block;
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.descriptionInput {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  height: 150px;
+}
+
+.edit{
+  text-align: left;
 }
 
 @keyframes App-logo-spin {

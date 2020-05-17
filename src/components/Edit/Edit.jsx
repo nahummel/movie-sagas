@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { Button } from '@material-ui/core';
 
 class Edit extends Component {
 
@@ -42,12 +43,16 @@ class Edit extends Component {
 
     render() {
         return (
-            <div>
+            <div className="edit">
                 <h1>Edit</h1>
-                <button onClick={this.handleCancel}>Cancel</button>
-                <button onClick={this.handleSave}>Save</button>
-                <input type="text" placeholder="Title" onChange={(event) => this.handleChange(event, 'title')}></input>
-                <input type="text" placeholder="Description" onChange={(event) => this.handleChange(event, 'description')}></input>
+                <div>
+                    <Button onClick={this.handleCancel} variant="contained" size="medium" style={{ marginRight: 10 }}>Cancel</Button>
+                    <Button onClick={this.handleSave} variant="contained" size="medium">Save</Button>
+                </div>
+                <div className="inputs">
+                    <input type="text" placeholder="Title" onChange={(event) => this.handleChange(event, 'title')} className="titleInput"></input>
+                    <textarea type="text" placeholder="Description" onChange={(event) => this.handleChange(event, 'description')} className="descriptionInput"></textarea>
+                </div>
             </div>
         )
     }
