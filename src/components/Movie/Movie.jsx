@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 
 class Movie extends Component {
 
@@ -12,11 +14,13 @@ class Movie extends Component {
 
     render() {
         return (
-            <div>
-                <img src={this.props.movie.poster} onClick={this.handleClick}/>
-                <h2>{this.props.movie.title}</h2>
-                <p>{this.props.movie.description}</p>
-            </div>
+            <Card>
+                <CardContent className="cardContent">
+                    <img src={this.props.movie.poster} onClick={this.handleClick}/>
+                    <h2>{this.props.movie.title}</h2>
+                    <p>{this.props.movie.description}</p>
+                </CardContent>
+            </Card>
         )
     }
 }

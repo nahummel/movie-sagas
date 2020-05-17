@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import{HashRouter, Route, Link} from 'react-router-dom';
+import{HashRouter, Route} from 'react-router-dom';
+import {Container} from '@material-ui/core'
 
 import './App.css';
 import MoviesList from '../MoviesList/MoviesList';
@@ -14,13 +15,13 @@ class App extends Component {
   // Renders the entire app on the DOM
   render() {
     return (
-      <div className="App">
+      <Container className="App" maxWidth="lg">
         <HashRouter>
           <Route exact path="/" render={(props) => <MoviesList {...props}/>}/>
           <Route path="/details" render={(props) => <Details {...props}/>}/>
           <Route path="/edit" render={(props) => <Edit {...props}/>}/>
         </HashRouter>
-      </div>
+      </Container>
     );
   }
 }

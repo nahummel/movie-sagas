@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background-color: rgb(199, 252, 211);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: rgb(46, 40, 40);
 }
 
 
@@ -16,6 +20,41 @@
 
 .App-intro {
   font-size: large;
+}
+
+header {
+  display: inline-block;
+  padding-left: 100px;
+  padding-right: 100px;
+  border: dashed 5px; 
+  margin: 20px; 
+  background-color: rgb(206, 239, 247);
+}
+
+h1 {
+  font-size: 72px;
+  text-align: center;
+}
+
+.title {
+  font-size: 48px;
+}
+
+.details {
+  text-align: left ;
+}
+
+.card {
+  box-shadow: 5px 10px;
+}
+
+.cardContent {
+  background-color: rgb(206, 239, 247);
+}
+
+.button {
+  background-color: rgb(206, 239, 247);
+  margin: 20px;
 }
 
 @keyframes App-logo-spin {

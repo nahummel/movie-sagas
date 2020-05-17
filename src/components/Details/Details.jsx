@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { Button } from '@material-ui/core';
 
 import Genre from '../Genre/Genre'
+import { lightBlue } from '@material-ui/core/colors';
 
 
 class Details extends Component {
@@ -16,11 +18,11 @@ class Details extends Component {
 
     render() {
         return (
-            <div>
+            <div className="details">
                 <h1>Details</h1>
-                <button onClick={this.handleBack}>Back</button>
-                <button onClick={this.handleEdit}>Edit</button>
-                <h2>{this.props.reduxState.detailsReducer.title}</h2>
+                <Button onClick={this.handleBack} variant="contained" size="large" style={{ marginRight: 10}}>Back</Button>
+                <Button onClick={this.handleEdit} variant="contained" size="large">Edit</Button>
+                <h2 className="title">{this.props.reduxState.detailsReducer.title}</h2>
                 <h2>Genre</h2>
                 <ul>
                     {this.props.reduxState.genresReducer.map((genre) => {
